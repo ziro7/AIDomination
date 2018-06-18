@@ -182,7 +182,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 456938, guid: ec948f8e0c2ff154f8d8ab7b12efce49, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -3.11
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 456938, guid: ec948f8e0c2ff154f8d8ab7b12efce49, type: 2}
       propertyPath: m_LocalPosition.z
@@ -905,11 +905,6 @@ Prefab:
       propertyPath: m_Name
       value: 4,0
       objectReference: {fileID: 0}
-    - target: {fileID: 102625873759638262, guid: 589259c270540294f80b76549e2d1128,
-        type: 2}
-      propertyPath: m_Text
-      value: 4,0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 589259c270540294f80b76549e2d1128, type: 2}
   m_IsPrefabParent: 0
@@ -956,7 +951,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5c9d093d8b8eed4d91465093eae3ef7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerLimit: 5
+  towerLimit: 3
   towerPrefab: {fileID: 114603730584502274, guid: da498fb61f316894fa65981e71318b98,
     type: 2}
   towerParentTransform: {fileID: 1621456264}
@@ -968,7 +963,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 793409240}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8e4b6422de0f864a85cc137aecf2e6f, type: 3}
+  m_Script: {fileID: 11500000, guid: da446579c95efd44eb5ed65e8427ee4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   startWaypoint: {fileID: 991618050}
@@ -1470,6 +1465,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1090404844206156, guid: 589259c270540294f80b76549e2d1128, type: 2}
       propertyPath: m_Name
+      value: 1,0
+      objectReference: {fileID: 0}
+    - target: {fileID: 102625873759638262, guid: 589259c270540294f80b76549e2d1128,
+        type: 2}
+      propertyPath: m_Text
       value: 1,0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

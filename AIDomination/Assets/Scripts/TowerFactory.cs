@@ -1,54 +1,56 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
-public class TowerFactory : MonoBehaviour
+namespace Assets.Scripts
 {
-
-	[SerializeField] int towerLimit = 5;
-	[SerializeField] Tower towerPrefab;
-	[SerializeField] Transform towerParentTransform;
-
-	Queue<Tower> towerQueue = new Queue<Tower>();
-
-	public void AddTower(Waypoint baseWaypoint)
+	public class TowerFactory : MonoBehaviour
 	{
-		int numTowers = towerQueue.Count;
 
-		if (numTowers < towerLimit)
+		[SerializeField] int towerLimit = 5;
+		[SerializeField] Tower towerPrefab;
+		[SerializeField] Transform towerParentTransform;
+
+		Queue<Tower> towerQueue = new Queue<Tower>();
+
+		public void AddTower(Waypoint baseWaypoint)
 		{
-			InstantiateNewTower(baseWaypoint);
+			int numTowers = towerQueue.Count;
+
+			if (numTowers < towerLimit)
+			{
+				InstantiateNewTower(baseWaypoint);
+			}
+			else
+			{
+				MoveExistingTower(baseWaypoint);
+			}
 		}
-		else
+
+		private void InstantiateNewTower(Waypoint baseWaypoint)
 		{
-			MoveExistingTower(baseWaypoint);
+			var newTower = Instantiate(towerPrefab, baseWaypoint.transform.position, Quaternion.identity);
+			newTower.transform.parent = towerParentTransform;
+			baseWaypoint.isPlaceable = false;
+
+			newTower.baseWaypoint = baseWaypoint;
+			baseWaypoint.isPlaceable = false;
+
+			towerQueue.Enqueue(newTower);
 		}
-	}
 
-	private void InstantiateNewTower(Waypoint baseWaypoint)
-	{
-		var newTower = Instantiate(towerPrefab, baseWaypoint.transform.position, Quaternion.identity);
-		newTower.transform.parent = towerParentTransform;
-		baseWaypoint.isPlaceable = false;
+		private void MoveExistingTower(Waypoint newBaseWaypoint)
+		{
+			var oldTower = towerQueue.Dequeue();
 
-		newTower.baseWaypoint = baseWaypoint;
-		baseWaypoint.isPlaceable = false;
+			oldTower.baseWaypoint.isPlaceable = true; // free-up the block
+			newBaseWaypoint.isPlaceable = false;
 
-		towerQueue.Enqueue(newTower);
-	}
+			oldTower.baseWaypoint = newBaseWaypoint;
 
-	private void MoveExistingTower(Waypoint newBaseWaypoint)
-	{
-		var oldTower = towerQueue.Dequeue();
+			oldTower.transform.position = newBaseWaypoint.transform.position;
 
-		oldTower.baseWaypoint.isPlaceable = true; // free-up the block
-		newBaseWaypoint.isPlaceable = false;
-
-		oldTower.baseWaypoint = newBaseWaypoint;
-
-		oldTower.transform.position = newBaseWaypoint.transform.position;
-
-		towerQueue.Enqueue(oldTower);
+			towerQueue.Enqueue(oldTower);
+		}
 	}
 }
 
