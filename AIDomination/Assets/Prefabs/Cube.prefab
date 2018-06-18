@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4054601570676468}
   - component: {fileID: 114054066499496828}
   - component: {fileID: 114952004089383480}
+  - component: {fileID: 65968326936497594}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -173,7 +174,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1090404844206156}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 10, y: 0, z: 0}
   m_LocalScale: {x: 10, y: 10, z: 10}
   m_Children:
   - {fileID: 4641406432978272}
@@ -279,7 +280,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 74701910c69278e418a46a73debdfe77, type: 2}
+  - {fileID: 2100000, guid: 6b9b8fa2769e8e84e93339279a7e401c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -454,7 +455,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: b540f47b96b44cc4f8ed3d2ccab89a6c, type: 2}
+  - {fileID: 2100000, guid: c26dd9d27756e2349834de73eb61e0da, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -635,6 +636,18 @@ MeshCollider:
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!65 &65968326936497594
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1090404844206156}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: -1, z: 0}
 --- !u!102 &102625873759638262
 TextMesh:
   serializedVersion: 3
@@ -642,7 +655,7 @@ TextMesh:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1590855019693874}
-  m_Text: 0,0
+  m_Text: 1,0
   m_OffsetZ: 0
   m_CharacterSize: 0.73
   m_LineSpacing: 0
@@ -667,7 +680,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e868d4ba9877ae24783aa378ebbe98d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _gridSize: 10
 --- !u!114 &114952004089383480
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -679,3 +691,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5ee1430d683b0e4483dff7b559185c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isExplored: 0
+  exploredFrom: {fileID: 0}
+  isPlaceable: 1
