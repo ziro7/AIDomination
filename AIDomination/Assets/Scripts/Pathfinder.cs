@@ -77,11 +77,13 @@ namespace Assets.Scripts
 		protected void CreatePath()
 		{
 			SetAsPath(endWaypoint);
+			endWaypoint.SetTopColor(Color.blue);
 
 			Waypoint previous = endWaypoint.exploredFrom;
 			while (previous != startWaypoint)
 			{
 				SetAsPath(previous);
+				previous.SetTopColor(Color.blue);
 				previous = previous.exploredFrom;
 			}
 

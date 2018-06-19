@@ -24,6 +24,7 @@ namespace Assets.Scripts
 
 		IEnumerator FollowPath(List<Waypoint> path)
 		{
+			yield return new WaitForSeconds(5f);
 			int nextWaypoint = 1;
 
 			foreach (Waypoint waypoint in path)
